@@ -13,8 +13,6 @@ app.use(express.json());
 app.use(express.static('public'));
 
 //routes
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html'))); //* does not open /notes
-
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
 
 // API routes
@@ -26,5 +24,7 @@ app.post('/api/notes', (req, res) => {
   dbFile.push(newNote);
   res.json(newNote);
 });
+
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
 
 app.listen(PORT, () => console.log(`Note Taker App listening on PORT ${PORT}`));
