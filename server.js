@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const dbFile = require('./db/db.json');
 
 // Set up for the Express App
 
@@ -12,10 +13,17 @@ app.use(express.json());
 
 //routes
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
-//app.get('/', (req, res) => res.send(path.join(__dirname, 'index.html')));
 
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
 
+// API routes
+app.get('/api/notes', (req, res) => res.json(dbFile));
 
+app.post('/api/notes', (req, res) => {
+  const newNote = req.body;
+
+  dbFile.push(newNote);
+  res.json(newNote);
+});
 
 app.listen(PORT, () => console.log(`Note Taker App listening on PORT ${PORT}`));
