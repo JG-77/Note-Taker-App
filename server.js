@@ -5,11 +5,13 @@ const dbFile = require('./db/db.json');
 // Set up for the Express App
 
 const app = express();
-const PORT = 3000;
+const PORT = 3000; // process.env.PORT ||
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// accesses public folder
 app.use(express.static('public'));
 
 //routes
@@ -25,6 +27,7 @@ app.post('/api/notes', (req, res) => {
   res.json(newNote);
 });
 
+//route redirecting to homepage
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
 
 app.listen(PORT, () => console.log(`Note Taker App listening on PORT ${PORT}`));
