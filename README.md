@@ -1,4 +1,4 @@
-# Note-Taker-App ![Node.js](https://img.shields.io/badge/License-Node.js-blue.svg) ![MIT](https://img.shields.io/badge/License-MIT-red.svg)
+# Note-Taker-App ![Node.js](https://img.shields.io/badge/License-Node.js-blue.svg) ![MIT](https://img.shields.io/badge/License-MIT-red.svg) ![CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-green.svg)
 
 
 ## GitHub Repository and Application
@@ -36,7 +36,7 @@ The Note-Taker application allows users to easily create their own notes to and 
 
 * Index.js file sets up front-end functionality for saving, creating, and deleting notes
 
-### CSS/Boottrap.css/Fontawesome (Starter code)
+### CSS/Boottrap.css/Font Awesome (Starter code)
 
 * Styling for the index.html and notes.html pages for the app
 * Adds polished and clean UI for easy navigation
@@ -106,3 +106,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+---
+[CC BY 4.0 License for Font Awesome](https://creativecommons.org/licenses/by/4.0/)
