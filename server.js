@@ -3,6 +3,7 @@ const path = require('path');
 const dbFile = require('./db/db.json');
 const id = Math.floor(Math.random() * 50);
 const fs = require('fs');
+const file = JSON.parse(fs.readFileSync('db/db.json'));
 
 // Set up for the Express App
 const app = express();
@@ -19,20 +20,18 @@ app.use(express.static('public'));
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
 
 // API routes
+//GET request
 app.get('/api/notes', (req, res) => {
-  const file = JSON.parse(fs.readFileSync('db/db.json')); //new code added 
-  
   //res.json(file) //previously 'dbfile'
   return file;
 });
-//writeFileAsync('db/db.json', JSON.stringify(note));
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
   newNote.id = id  //giving new note an id
 
-  //const updatedArray = dbFile.push(newNote);  // new code added
-  const file = fs.writeFileSync('db/db.json', JSON.stringify(newNote));
+  file.push(newNote);  
+  fs.writeFileSync('db/db.json', JSON.stringify(file));
 
   // res.json(file); //previously 'newNote'
   return file;
