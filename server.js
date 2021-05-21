@@ -22,8 +22,8 @@ app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes
 // API routes
 //GET request
 app.get('/api/notes', (req, res) => {
-  //res.json(file) //previously 'dbfile'
-  return file;
+  
+  res.json(file); 
 });
 
 app.post('/api/notes', (req, res) => {
@@ -33,8 +33,7 @@ app.post('/api/notes', (req, res) => {
   file.push(newNote);  
   fs.writeFileSync('db/db.json', JSON.stringify(file));
 
-  // res.json(file); //previously 'newNote'
-  return file;
+  res.json(file);
 });
 
 app.delete(`/api/notes/${id}`, (req, res) => { //delete note function
