@@ -22,6 +22,7 @@ app.get('/api/notes', (req, res) => res.json(dbFile));
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
+  const id = Math.floor(Math.random() * 50); //giving new note an id
 
   dbFile.push(newNote);
   res.json(newNote);
