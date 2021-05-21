@@ -10,6 +10,10 @@
 ## Application Screenshots
 ---
 
+![Home page](https://user-images.githubusercontent.com/76461629/119203256-7e56e380-ba47-11eb-9bdb-24008d79d715.png)
+
+![Notes pages](https://user-images.githubusercontent.com/76461629/119203251-7a2ac600-ba47-11eb-9a11-7021264916d0.png)
+
 ## Description
 ---
 The Note-Taker application allows users to easily create their own notes to and bring them up with the click of a button! The app features a home page that directs the user to 'notes' page once they click 'Get Started,' and previously saved notes will appear on the sidebar of the 'notes' page. Once the user enters text into the title and body section of the notes, a save icon will appear in the top-right corner of the page will enable the save functionality once clicked. The 'plus' icon also on the top-right corner of the page creates a new blank note when clicked. 
@@ -76,9 +80,13 @@ IN THE SOFTWARE.
 The MIT License (MIT)
 
 Copyright (c) 2011-2021 Twitter, Inc.
+
 Copyright (c) 2011-2021 The Bootstrap Authors
+
 Copyright (c) 2009-2014 TJ Holowaychuk <tj@vision-media.ca> (Express.js)
+
 Copyright (c) 2013-2014 Roman Shtylman <shtylman+expressjs@gmail.com> (Express.js)
+
 Copyright (c) 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com> (Express.js)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
