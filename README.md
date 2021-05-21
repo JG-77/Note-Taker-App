@@ -6,6 +6,7 @@
 
 [GitHub Link](https://github.com/JG-77/Note-Taker-App.git)
 
+[Heroku Deployed Note-Taker Page](https://rocky-waters-73289.herokuapp.com/)
 
 ## Application Screenshots
 ---
