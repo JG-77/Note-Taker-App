@@ -2,8 +2,9 @@ const express = require('express');
 const path = require('path');
 const dbFile = require('./db/db.json');
 const id = Math.floor(Math.random() * 50);
-// Set up for the Express App
+const fs = require('fs');
 
+// Set up for the Express App
 const app = express();
 const PORT = 3000; // process.env.PORT ||
 
@@ -18,20 +19,33 @@ app.use(express.static('public'));
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
 
 // API routes
-app.get('/api/notes', (req, res) => res.json(dbFile));
+app.get('/api/notes', (req, res) => {
+  const file = JSON.parse(fs.readFileSync('db/db.json')); //new code added 
+  
+  //res.json(file) //previously 'dbfile'
+  return file;
+});
+//writeFileAsync('db/db.json', JSON.stringify(note));
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
   newNote.id = id  //giving new note an id
 
-  dbFile.push(newNote);
-  res.json(newNote);
+  //const updatedArray = dbFile.push(newNote);  // new code added
+  const file = fs.writeFileSync('db/db.json', JSON.stringify(newNote));
+
+  // res.json(file); //previously 'newNote'
+  return file;
 });
 
-app.post(`/api/notes/${id}`, (req, res) => { //delete note function
+app.delete(`/api/notes/${id}`, (req, res) => { //delete note function
   const notes = req.body;
 
-  notes.splice(`${id}`, 1);
+  notes.filter(id => notes.id == id);
+
+console.log(notes);
+console.log(`${id}`);
+console.log(id);
 
   dbFile.push(notes);
   res.json(notes);
