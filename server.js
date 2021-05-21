@@ -8,7 +8,7 @@ const file = JSON.parse(fs.readFileSync('db/db.json'));
 
 // Set up for the Express App
 const app = express();
-const PORT = 3000; // process.env.PORT ||
+const PORT = process.env.PORT || 3000; 
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -38,20 +38,6 @@ app.post('/api/notes', (req, res) => {
   fs.writeFileSync('db/db.json', JSON.stringify(file));
 
   res.json(file);
-});
-
-//DELETE request
-app.delete(`/api/notes/${id}`, (req, res) => { //delete note function
-  const notes = req.body;
-
-  notes.filter(id => notes.id == id);
-
-console.log(notes);
-console.log(`${id}`);
-console.log(id);
-
-  dbFile.push(notes);
-  res.json(notes);
 });
 
 //route redirecting to homepage
