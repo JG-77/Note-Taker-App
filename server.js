@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const dbFile = require('./db/db.json');
-
+const id = Math.floor(Math.random() * 50);
 // Set up for the Express App
 
 const app = express();
@@ -22,12 +22,16 @@ app.get('/api/notes', (req, res) => res.json(dbFile));
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
-  const id = Math.floor(Math.random() * 50); //giving new note an id
+   //giving new note an id
   newNote.id = id
 
   dbFile.push(newNote);
   res.json(newNote);
 });
+
+//
+
+//app.post(`/api/notes/${id}`, (req, res) => {});
 
 //route redirecting to homepage
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
