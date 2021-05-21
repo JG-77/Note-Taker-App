@@ -22,16 +22,20 @@ app.get('/api/notes', (req, res) => res.json(dbFile));
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
-   //giving new note an id
-  newNote.id = id
+  newNote.id = id  //giving new note an id
 
   dbFile.push(newNote);
   res.json(newNote);
 });
 
-//
+app.post(`/api/notes/${id}`, (req, res) => { //delete note function
+  const notes = req.body;
 
-//app.post(`/api/notes/${id}`, (req, res) => {});
+  notes.splice(`${id}`, 1);
+
+  dbFile.push(notes);
+  res.json(notes);
+});
 
 //route redirecting to homepage
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
