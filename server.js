@@ -1,3 +1,4 @@
+//Packages and variables
 const express = require('express');
 const path = require('path');
 const dbFile = require('./db/db.json');
@@ -26,16 +27,20 @@ app.get('/api/notes', (req, res) => {
   res.json(file); 
 });
 
+//POST request
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
-  newNote.id = id  //giving new note an id
+  // Giving new note an id
+  newNote.id = id  
 
-  file.push(newNote);  
+  //Pushing new note into db array
+  file.push(newNote); 
   fs.writeFileSync('db/db.json', JSON.stringify(file));
 
   res.json(file);
 });
 
+//DELETE request
 app.delete(`/api/notes/${id}`, (req, res) => { //delete note function
   const notes = req.body;
 
