@@ -4,6 +4,9 @@
 ## GitHub Repository and Application
 ---
 
+[GitHub Link](https://github.com/JG-77/Note-Taker-App.git)
+
+
 ## Application Screenshots
 ---
 
